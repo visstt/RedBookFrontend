@@ -1,0 +1,138 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dadfd9;
+  position: relative;
+  width: 97%;
+  height: 94%;
+}
+.line {
+  width: 12%;
+  height: 7px;
+  background-color: #485935;
+  border-radius: 2rem;
+}
+
+.leaf,
+.eagle,
+.leaves,
+.fikus {
+  position: absolute;
+}
+
+.leaf {
+  top: -177px;
+  left: -100px;
+  rotate: 190deg;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) -60px -60px 25px);
+}
+.eagle {
+  top: -210px;
+  right: -80px;
+  rotate: -30deg;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) -60px 20px 25px);
+}
+.leaves {
+  bottom: 0;
+  left: -80px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) -40px -40px 25px);
+}
+.fikus {
+  bottom: -150px;
+  right: -40px;
+  rotate: -80deg;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) 30px -40px 25px);
+}
+
+@media (max-width: 1900px) {
+  .leaves {
+    max-width: 30%;
+  }
+}
+@media (max-width: 1440px) {
+  .leaf,
+  .eagle,
+  .leaves,
+  .fikus {
+    scale: 85%;
+  }
+  .leaves {
+    bottom: -90px;
+    max-width: 50%;
+  }
+}
+@media (max-width: 1024px) {
+  .leaf,
+  .eagle,
+  .leaves,
+  .fikus {
+    scale: 70%;
+  }
+  .leaf {
+    left: -200px;
+  }
+  .leaves {
+    bottom: -90px;
+    left: -200px;
+    max-width: 50%;
+  }
+  .fikus {
+    right: -120px;
+    bottom: -200px;
+  }
+}
+@media (max-width: 768px) {
+  .leaf,
+  .eagle,
+  .fikus {
+    scale: 45%;
+  }
+
+  .eagle {
+    right: -110px;
+  }
+  .leaf {
+    top: -250;
+    left: -230px;
+  }
+  .leaves {
+    bottom: -120px;
+    left: -200px;
+    scale: 130%;
+  }
+  .fikus {
+    right: -120px;
+    bottom: -200px;
+  }
+}
+@media (max-width: 500px) {
+  .eagle {
+    scale: 35%;
+  }
+  .fikus,
+  .leaf {
+    display: none;
+  }
+  .eagle {
+    top: -125px;
+  }
+  .leaves {
+    bottom: -20px;
+    left: -50px;
+    scale: 120%;
+  }
+  .intro {
+    height: 98%;
+  }
+}

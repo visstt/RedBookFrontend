@@ -1,13 +1,19 @@
-import './App.css'
-import Info from './components/pages/Info/Info'
+import "./App.css";
+import CreateRequest from "./components/pages/CreateRequest/CreateRequest";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./components/pages/home/HomePage";
 
 function App() {
-
   return (
-    <>
-      <Info/>
-    </>
-  )
+    <Router>
+      <>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/CreateRequest" element={<CreateRequest />} />
+        </Routes>
+      </>
+    </Router>
+  );
 }
 
-export default App
+export default App;

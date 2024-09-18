@@ -1,0 +1,22 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 32px;
+  position: absolute;
+
+  top: 0;
+}
+.area {
+  width: 40%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 500px) {
+  .area{
+    width: 80%;
+  }
+}

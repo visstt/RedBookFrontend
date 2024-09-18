@@ -1,0 +1,77 @@
+.container {
+  height: 100vh; /* Высота на весь экран */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c1dabc;
+  margin: 0; /* Убираем отступы */
+  padding: 0; /* Убираем отступы */
+}
+
+.form {
+  width: 100%; /* Задаем ширину формы на 100% */
+  max-width: 600px; /* Максимальная ширина формы */
+  padding: 20px;
+  background-color: #e6e4d6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropZone {
+  border: 2px dashed #485935;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.dropZone:hover {
+  background-color: #d1d1d1;
+}
+
+.previewImage {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+}
+
+.label {
+  color: #133115;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #485935;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.submitButton {
+  background-color: #133115;
+  color: #e6e4d6;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #485935;
+}
+
+.prompt {
+  color: #133115;
+  margin: 0;
+}
+
+.fileLabel {
+  cursor: pointer;
+  color: #133115;
+}
