@@ -75,3 +75,33 @@
   cursor: pointer;
   color: #133115;
 }
+
+.imageGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.imageCheckbox {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkboxImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.imageCheckbox input:checked + .checkboxImage,
+.checkboxImage.selected {
+  border-color: #485935; /* Цвет выделенной рамки */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Добавляем немного тени для выделенной картинки */
+}
+
+.imageCheckbox input {
+  display: none; /* Скрываем радиокнопку */
+}
