@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "dudka";
+  src: local("dudka"),
+    url("../public/fonts/dudka/Dudka\ Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "shadow";
+  src: local("shadow"),
+    url("../public/fonts/shadow/TTF/Shadow_regular.ttf") format("truetype");
+}

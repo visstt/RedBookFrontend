@@ -1,0 +1,82 @@
+.InfoPage {
+  width: 100%;
+}
+
+.Text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #485935;
+  font-family: "Shadow", sans-serif;
+}
+
+.h1 {
+  font-size: 64px;
+}
+
+.line {
+  width: 50%;
+  height: 7px;
+  background-color: #485935;
+  border-radius: 2rem;
+  margin-top: -2%;
+}
+
+.InfSection {
+  width: 90%;
+  margin: 5% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+.Photo {
+  width: 50%;
+}
+.TextInfo {
+  font-family: Dudka;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: #485935;
+}
+
+@media (max-width: 1300px) {
+  .Photo {
+    width: 400px;
+    height: 300px;
+  }
+  .TextInfo {
+    font-size: 26px;
+  }
+}
+@media (max-width: 900px) {
+  .Photo {
+    width: 350px;
+    height: 350px;
+  }
+  .TextInfo {
+    font-size: 20px;
+  }
+  .h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .InfSection {
+    flex-wrap: wrap;
+  }
+  .Photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+  }
+  .TextInfo {
+    font-size: 20px;
+  }
+  .h1 {
+    font-size: 50px;
+  }
+}
