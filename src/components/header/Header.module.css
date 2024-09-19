@@ -16,7 +16,11 @@ header {
 }
 
 @media (max-width: 500px) {
-  .area{
+  .area {
     width: 80%;
   }
+}
+
+a {
+  cursor: pointer;
 }

@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dadfd9;
+  padding-top: 30px;
+}
+.line {
+  width: 50%;
+  height: 7px;
+  background-color: #485935;
+  border-radius: 2rem;
+}
+.Text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h1 {
+  font-size: 64px;
+}
+.map {
+  margin: 2% 0;
+}
+@media (max-width: 900px) {
+  .h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .h1 {
+    font-size: 50px;
+  }
+}

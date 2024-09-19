@@ -1,18 +1,18 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { Link } from "react-scroll";
-
+import { Link as LinkS } from "react-scroll";
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header>
       <div className={styles.area}>
-        <Link to="" smooth={true}>
+        <LinkS to="map" smooth={true}>
           КАРТА
-        </Link>
-        <Link to="" smooth={true}>
+        </LinkS>
+        <LinkS to="inf" smooth={true}>
           О НАС
-        </Link>
-        <a href="">ВХОД</a>
+        </LinkS>
+        <Link to="/Login">ВХОД</Link>
       </div>
     </header>
   );

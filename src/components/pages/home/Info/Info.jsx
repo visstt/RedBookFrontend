@@ -3,7 +3,7 @@ import styles from "./Info.module.css";
 
 export default function Info() {
   return (
-    <div className={styles.InfoPage}>
+    <div className={styles.InfoPage} id="inf">
       <div className={styles.Text}>
         <h1 className={styles.h1}>О НАС</h1>
       </div>

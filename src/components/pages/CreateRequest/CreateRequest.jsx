@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import styles from "./CreateRequest.module.css";
 
 const CreateRequest = () => {
-  const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
+  const [imageFile, setImageFile] = useState(null);
   const [description, setDescription] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null); // Для выбранного изображения
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setImageFile(file); // сохраняем файл для отправки на сервер
     }
   };
 
@@ -22,11 +18,7 @@ const CreateRequest = () => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setImageFile(file); // сохраняем файл для отправки на сервер
     }
   };
 
@@ -34,16 +26,48 @@ const CreateRequest = () => {
     event.preventDefault();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log({ title, description, image, selectedImage });
+
+    const formData = new FormData();
+    formData.append("header", title);
+    formData.append("description", description);
+    formData.append("area", selectedImage);
+
+    // Проверка наличия загруженного файла
+    if (imageFile) {
+      formData.append("photo", imageFile); // отправляем файл как часть формы
+    } else {
+      console.error("Файл не выбран");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/addApplication", {
+        method: "POST",
+        body: formData, // отправляем данные как FormData
+        // Не добавляем заголовок Content-Type, его установит браузер автоматически
+      });
+
+      if (response.ok) {
+        // Уведомление об успешной отправке данных
+        alert("Данные успешно отправлены");
+
+        // Перенаправление на главную страницу
+        window.location.href = "/";
+      } else {
+        const errorText = await response.text(); // чтение текста ошибки с сервера
+        console.error("Ошибка при отправке данных", errorText);
+      }
+    } catch (error) {
+      console.error("Ошибка сети:", error);
+    }
   };
 
   const handleImageSelect = (imageSrc, imageIndex) => {
-    setSelectedImage(imageIndex); // Устанавливаем выбранный номер изображения
+    setSelectedImage(imageIndex + 1);
   };
 
-  // Пример изображений
   const images = [
     "/public/img/blue.jpg",
     "/public/img/gray.jpg",
@@ -59,8 +83,12 @@ const CreateRequest = () => {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-          {image ? (
-            <img src={image} alt="Preview" className={styles.previewImage} />
+          {imageFile ? (
+            <img
+              src={URL.createObjectURL(imageFile)} // используем URL для предварительного просмотра
+              alt="Preview"
+              className={styles.previewImage}
+            />
           ) : (
             <p className={styles.prompt}>
               Перетащите сюда изображение или выберите файл
@@ -73,7 +101,7 @@ const CreateRequest = () => {
             style={{ display: "none" }}
             id="fileInput"
           />
-          {!image && (
+          {!imageFile && (
             <label htmlFor="fileInput" className={styles.fileLabel}>
               Выбрать файл
             </label>
@@ -111,10 +139,10 @@ const CreateRequest = () => {
               <input
                 type="radio"
                 name="selectedImage"
-                value={index + 1} // Присваиваем номер как value
+                value={index + 1}
                 checked={selectedImage === index + 1}
-                onChange={() => handleImageSelect(src, index + 1)}
-                style={{ display: "none" }} // Скрываем input
+                onChange={() => handleImageSelect(src, index)}
+                style={{ display: "none" }}
               />
               <img
                 src={src}
