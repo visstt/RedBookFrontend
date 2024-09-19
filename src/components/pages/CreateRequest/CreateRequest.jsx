@@ -6,11 +6,13 @@ const CreateRequest = () => {
   const [imageFile, setImageFile] = useState(null);
   const [description, setDescription] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [cadastral, setCadastral] = useState(""); // новое поле для кадастрового номера
+  const [cadastralError, setCadastralError] = useState(""); // для отображения ошибок валидации
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImageFile(file); // сохраняем файл для отправки на сервер
+      setImageFile(file);
     }
   };
 
@@ -18,7 +20,7 @@ const CreateRequest = () => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     if (file) {
-      setImageFile(file); // сохраняем файл для отправки на сервер
+      setImageFile(file);
     }
   };
 
@@ -26,17 +28,36 @@ const CreateRequest = () => {
     event.preventDefault();
   };
 
+  const handleCadastralChange = (e) => {
+    const value = e.target.value;
+
+    // Ограничение на 12 цифр и валидация на ввод только чисел
+    const regex = /^[0-9]{0,12}$/;
+    if (regex.test(value)) {
+      setCadastral(value);
+      setCadastralError("");
+    } else {
+      setCadastralError("Введите только 12 цифр");
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Проверка кадастрового номера перед отправкой
+    if (cadastral.length !== 12) {
+      setCadastralError("Кадастровый номер должен содержать 12 цифр");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("header", title);
     formData.append("description", description);
+    formData.append("cadastral", cadastral); // добавляем кадастровый номер
     formData.append("area", selectedImage);
 
-    // Проверка наличия загруженного файла
     if (imageFile) {
-      formData.append("photo", imageFile); // отправляем файл как часть формы
+      formData.append("photo", imageFile);
     } else {
       console.error("Файл не выбран");
       return;
@@ -45,18 +66,14 @@ const CreateRequest = () => {
     try {
       const response = await fetch("http://localhost:8080/addApplication", {
         method: "POST",
-        body: formData, // отправляем данные как FormData
-        // Не добавляем заголовок Content-Type, его установит браузер автоматически
+        body: formData,
       });
 
       if (response.ok) {
-        // Уведомление об успешной отправке данных
         alert("Данные успешно отправлены");
-
-        // Перенаправление на главную страницу
         window.location.href = "/";
       } else {
-        const errorText = await response.text(); // чтение текста ошибки с сервера
+        const errorText = await response.text();
         console.error("Ошибка при отправке данных", errorText);
       }
     } catch (error) {
@@ -85,7 +102,7 @@ const CreateRequest = () => {
         >
           {imageFile ? (
             <img
-              src={URL.createObjectURL(imageFile)} // используем URL для предварительного просмотра
+              src={URL.createObjectURL(imageFile)}
               alt="Preview"
               className={styles.previewImage}
             />
@@ -131,6 +148,21 @@ const CreateRequest = () => {
               className={styles.inputField}
             />
           </label>
+        </div>
+
+        <div>
+          <label className={styles.label}>
+            Кадастровый номер:
+            <input
+              type="text"
+              value={cadastral}
+              onChange={handleCadastralChange}
+              className={styles.inputField}
+              maxLength={12}
+              required
+            />
+          </label>
+          {cadastralError && <p className={styles.error}>{cadastralError}</p>}
         </div>
 
         <div className={styles.imageGroup}>

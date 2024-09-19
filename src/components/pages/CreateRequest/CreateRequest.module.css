@@ -1,16 +1,17 @@
 .container {
-  height: 100vh; /* Высота на весь экран */
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #c1dabc;
-  margin: 0; /* Убираем отступы */
-  padding: 0; /* Убираем отступы */
+  margin: 0;
+  padding: 0;
 }
 
 .form {
-  width: 100%; /* Задаем ширину формы на 100% */
-  max-width: 600px; /* Максимальная ширина формы */
+  width: 100%;
+  max-width: 600px;
   padding: 20px;
   background-color: #e6e4d6;
   border-radius: 8px;
@@ -98,10 +99,10 @@
 
 .imageCheckbox input:checked + .checkboxImage,
 .checkboxImage.selected {
-  border-color: #485935; /* Цвет выделенной рамки */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Добавляем немного тени для выделенной картинки */
+  border-color: #485935;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .imageCheckbox input {
-  display: none; /* Скрываем радиокнопку */
+  display: none;
 }

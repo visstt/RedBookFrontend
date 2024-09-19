@@ -1,0 +1,109 @@
+.areaBlock1 {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: aqua;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-size: cover;
+  background-image: url(/public/img/blue.jpg);
+  background-repeat: no-repeat;
+  transition: ease-in-out 0.3s transform;
+}
+.areaBlock2 {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: aqua;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-size: cover;
+  background-image: url(/public/img/gray.jpg);
+  background-repeat: no-repeat;
+  transition: ease-in-out 0.3s transform;
+}
+.areaBlock3 {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: aqua;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-size: cover;
+  background-image: url(/public/img/green.jpg);
+  background-repeat: no-repeat;
+  transition: ease-in-out 0.3s transform;
+}
+.areaBlock4 {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  background-color: aqua;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-size: cover;
+  background-image: url(/public/img/orange.jpg);
+  background-repeat: no-repeat;
+  transition: ease-in-out 0.3s transform;
+}
+.areaBlock1:hover,
+.areaBlock2:hover,
+.areaBlock3:hover,
+.areaBlock4:hover {
+  transform: scale(105%);
+}
+.areaName {
+  color: black;
+  font-size: 36px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 50px;
+  padding: 50px;
+}
+.line {
+  width: 50%;
+  height: 7px;
+  background-color: #485935;
+  border-radius: 2rem;
+}
+.h1 {
+  font-size: 64px;
+  text-align: center;
+}
+@media (max-width: 1440px) {
+  .container {
+    padding: 30px;
+  }
+}
+@media (max-width: 900px) {
+  .h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .h1 {
+    font-size: 50px;
+  }
+  .areaBlock1,
+  .areaBlock2,
+  .areaBlock3,
+  .areaBlock4 {
+    width: 350px;
+  }
+  .areaName {
+    font-size: 28px;
+  }
+}

@@ -23,6 +23,18 @@
 .map {
   margin: 2% 0;
 }
+.Btn {
+  background-color: #485935;
+  border: none;
+  color: white;
+  font-family: dudka;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   .h1 {
     font-size: 50px;

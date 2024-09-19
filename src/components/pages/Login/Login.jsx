@@ -27,7 +27,7 @@ export default function Login() {
 
         if (result === true) {
           // Если авторизация успешна, перенаправляем на главную страницу
-          window.location.href = "/";
+          window.location.href = "/Applications";
         } else {
           // Если авторизация неудачна, показываем ошибку
           setError("Неверный логин или пароль");

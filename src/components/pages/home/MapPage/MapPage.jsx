@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./MapPage.module.css";
+import { Link } from "react-router-dom";
 
 export default function MapPage() {
   return (
@@ -15,6 +16,10 @@ export default function MapPage() {
         frameborder="0"
         className={styles.map}
       ></iframe>
+
+      <Link to="/CreateRequest">
+        <button className={styles.Btn}>Добавить</button>
+      </Link>
     </div>
   );
 }
