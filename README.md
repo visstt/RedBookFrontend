@@ -1,8 +1,42 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# RedBook (клиентская часть)
 
-Currently, two official plugins are available:
+Наш продукт создан для ознакомления с редкими представителями флоры и фауны города Москвы, а также у вас есть возможность внести представителя красной книги на наш сайт.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для запуска Frontend части веб-сайта необходимо установить node.js.
+
+
+## Запуск
+
+Сколонируйте репозиторий
+
+```bash
+  git clone https://github.com/visstt/RedBookFrontend
+```
+
+Установите зависимости
+
+```bash
+  yarn
+```
+
+Запустите сервер
+
+```bash
+  yarn dev
+```
+
+Frontend часть работает в связке с Backend частью:
+```bash
+ https://github.com/vitaly06/RedBookRestAPI
+```
+# Авторы:
+### Проект разрабатывался командой разработчиков:
+
+Скоморохов Егор Константинович (Frontend)
+
+Арзамасцев Даниил Михайлович(Frontend)
+
+Садиков Виталий Дмитриевич (Backend)
+
+Шкуратора Мария Николаевна (Дизайнер)
